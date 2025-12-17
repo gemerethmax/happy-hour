@@ -4,6 +4,9 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
+// Import database connection
+const pool = require('./db/connection');
+
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +31,21 @@ app.get('/api/health', (req, res) => {
     message: 'Happy Hour API is running!',
     timestamp: new Date().toISOString(),
   });
+});
+
+// Test route to confirm database connection
+app.get('/api/db-test', async (req, res, next) => {
+  try {
+    // Query PostgreSQL version to test connection
+    const result = await pool.query('SELECT version()');
+    res.json({
+      status: 'success',
+      message: 'Database connection successful!',
+      database: result.rows[0].version,
+    });
+  } catch (error) {
+    next(error); // Pass error to error handler
+  }
 });
 
 // Placeholder routes (we'll build these in Phase 4 & 5)
