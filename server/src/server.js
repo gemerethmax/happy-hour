@@ -7,6 +7,9 @@ require('dotenv').config();
 // Import database connection
 const pool = require('./db/connection');
 
+// Import routes
+const authRoutes = require('./routes/auth');
+
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -48,8 +51,10 @@ app.get('/api/db-test', async (req, res, next) => {
   }
 });
 
-// Placeholder routes (we'll build these in Phase 4 & 5)
-// app.use('/api/auth', authRoutes);
+// API Routes
+app.use('/api/auth', authRoutes);
+
+// Placeholder routes (we'll build these in Phase 5)
 // app.use('/api/happy-hours', happyHoursRoutes);
 // app.use('/api/interests', interestsRoutes);
 
