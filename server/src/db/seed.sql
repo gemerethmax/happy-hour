@@ -1,52 +1,82 @@
 -- Seed data for Happy Hour Swipe MVP
--- This provides sample restaurants and happy hours for development
+-- Real Atlanta restaurant data for authentic local experience
 
 -- Clear existing data (in correct order to respect foreign keys)
 TRUNCATE user_interests, happy_hours, restaurants, users RESTART IDENTITY CASCADE;
 
--- Insert sample restaurants
+-- Insert Atlanta restaurants
 INSERT INTO restaurants (name, address, description, image_url) VALUES
-('The Wing Stop', '123 Main St, San Francisco, CA', 'Best wings in the city with 20+ flavors', 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=400'),
-('Oyster Bay', '456 Harbor Blvd, San Francisco, CA', 'Fresh oysters daily from local waters', 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=400'),
-('Sunset Cocktail Lounge', '789 Beach Ave, San Francisco, CA', 'Craft cocktails with ocean views', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400'),
-('The Burger Joint', '321 Park St, San Francisco, CA', 'Gourmet burgers and craft beers', 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400'),
-('Taco Tuesday HQ', '654 Mission St, San Francisco, CA', 'Authentic street tacos and margaritas', 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400');
+('The Deer and The Dove', '3065 N Druid Hills Rd, Decatur, GA', 'Upscale American bistro with craft cocktails in an intimate setting', 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=400'),
+('Double Zero', '124 E Court Square, Decatur, GA', 'Neapolitan pizzeria with fresh pasta and Italian wine', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400'),
+('The Iberian Pig', '121 Sycamore St, Decatur, GA', 'Spanish tapas bar serving authentic small plates and cocktails', 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=400'),
+('The Cheesecake Factory', '3024 Peachtree Rd NW, Buckhead, GA', 'American chain restaurant famous for oversized portions and 30+ cheesecakes', 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=400'),
+('Alici Oyster Bar', '1341 Clairmont Rd, Decatur, GA', 'Coastal Italian seafood with fresh oysters and handmade pasta', 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=400'),
+('Fontaine''s Oyster House', '1026 N Highland Ave, Virginia Highland, GA', 'Classic oyster bar with Southern charm and raw bar specials', 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=400'),
+('Universal Joint', '1251 Wylie St SE, Oakhurst, GA', 'Neighborhood bar with comfort food, craft beers, and pool tables', 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=400');
 
--- Insert sample happy hours
+-- Insert happy hours
 -- Note: day_of_week: 0=Sunday, 1=Monday, 2=Tuesday, 3=Wednesday, 4=Thursday, 5=Friday, 6=Saturday
 
--- The Wing Stop happy hours
+-- The Deer and The Dove - $5 Martinis M-F 4-6pm
 INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
-(1, 'Monday Wing Madness', '50% off all wings', 'Every Monday enjoy half-price wings! Choose from 20+ flavors including Buffalo, BBQ, Teriyaki, and our signature Honey Sriracha. Perfect for game nights!', 1, '16:00', '19:00', ARRAY['wings', 'meal_specials'], 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=600'),
-(1, 'Thirsty Thursday', '$3 drafts with wing purchase', 'Ice-cold draft beers for just $3 when you order any wing platter. Featuring local craft breweries and classic domestics.', 4, '17:00', '21:00', ARRAY['drinks', 'wings'], 'https://images.unsplash.com/photo-1535958636474-b021ee887b13?w=600');
+(1, 'Weekday Martini Hour', '$5 craft martinis every weekday', 'Unwind after work with our handcrafted martinis for just $5. Choose from classic dirty, espresso, lemon drop, or our signature lavender martini. Monday through Friday, 4-6pm.', 1, '16:00', '18:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600'),
+(1, 'Weekday Martini Hour', '$5 craft martinis every weekday', 'Unwind after work with our handcrafted martinis for just $5. Choose from classic dirty, espresso, lemon drop, or our signature lavender martini. Monday through Friday, 4-6pm.', 2, '16:00', '18:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600'),
+(1, 'Weekday Martini Hour', '$5 craft martinis every weekday', 'Unwind after work with our handcrafted martinis for just $5. Choose from classic dirty, espresso, lemon drop, or our signature lavender martini. Monday through Friday, 4-6pm.', 3, '16:00', '18:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600'),
+(1, 'Weekday Martini Hour', '$5 craft martinis every weekday', 'Unwind after work with our handcrafted martinis for just $5. Choose from classic dirty, espresso, lemon drop, or our signature lavender martini. Monday through Friday, 4-6pm.', 4, '16:00', '18:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600'),
+(1, 'Weekday Martini Hour', '$5 craft martinis every weekday', 'Unwind after work with our handcrafted martinis for just $5. Choose from classic dirty, espresso, lemon drop, or our signature lavender martini. Monday through Friday, 4-6pm.', 5, '16:00', '18:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600');
 
--- Oyster Bay happy hours
+-- Double Zero - Half off wine & $5 breadsticks M-F 5-6pm
 INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
-(2, 'Daily Dollar Oysters', '$1 oysters every weekday', 'Fresh local oysters for just $1 each during happy hour. Pair with our selection of white wines and champagnes. Raw, grilled, or Rockefeller style!', NULL, '15:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
-(2, 'Wine Down Wednesday', 'Half-price wine bottles', 'Every Wednesday, enjoy 50% off all wine bottles with purchase of any appetizer. Perfect for date night!', 3, '16:00', '20:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600');
+(2, 'Italian Wine Hour', '50% off wine & $5 breadsticks', 'Experience Italy during our daily happy hour! All wines half-price, from crisp Pinot Grigio to bold Chianti. Pair with our famous garlic & herb breadsticks for just $5. Cin cin!', 1, '17:00', '18:00', ARRAY['drinks', 'meal_specials'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600'),
+(2, 'Italian Wine Hour', '50% off wine & $5 breadsticks', 'Experience Italy during our daily happy hour! All wines half-price, from crisp Pinot Grigio to bold Chianti. Pair with our famous garlic & herb breadsticks for just $5. Cin cin!', 2, '17:00', '18:00', ARRAY['drinks', 'meal_specials'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600'),
+(2, 'Italian Wine Hour', '50% off wine & $5 breadsticks', 'Experience Italy during our daily happy hour! All wines half-price, from crisp Pinot Grigio to bold Chianti. Pair with our famous garlic & herb breadsticks for just $5. Cin cin!', 3, '17:00', '18:00', ARRAY['drinks', 'meal_specials'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600'),
+(2, 'Italian Wine Hour', '50% off wine & $5 breadsticks', 'Experience Italy during our daily happy hour! All wines half-price, from crisp Pinot Grigio to bold Chianti. Pair with our famous garlic & herb breadsticks for just $5. Cin cin!', 4, '17:00', '18:00', ARRAY['drinks', 'meal_specials'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600'),
+(2, 'Italian Wine Hour', '50% off wine & $5 breadsticks', 'Experience Italy during our daily happy hour! All wines half-price, from crisp Pinot Grigio to bold Chianti. Pair with our famous garlic & herb breadsticks for just $5. Cin cin!', 5, '17:00', '18:00', ARRAY['drinks', 'meal_specials'], 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600');
 
--- Sunset Cocktail Lounge happy hours
+-- The Iberian Pig - Two separate happy hours (4-5pm drinks, 5-6pm small plates) M-F
 INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
-(3, 'Sunset Specials', '$5 craft cocktails during golden hour', 'Watch the sunset with our signature cocktails: Mai Tai, Old Fashioned, Margarita, and seasonal specials. All just $5!', NULL, '17:00', '19:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600'),
-(3, 'Friday Wind Down', 'Half-price appetizers all night', 'TGIF! Enjoy 50% off all small plates: truffle fries, calamari, bruschetta, cheese board, and more.', 5, '16:00', '22:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1541529086526-db283c563270?w=600');
+(3, 'Tapas & Cocktails Hour', 'Discounted Spanish cocktails', 'Start your evening with discounted sangria, gin & tonics, and Spanish wines. The perfect prelude to our acclaimed tapas menu.', 1, '16:00', '17:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'),
+(3, 'Tapas & Cocktails Hour', 'Discounted Spanish cocktails', 'Start your evening with discounted sangria, gin & tonics, and Spanish wines. The perfect prelude to our acclaimed tapas menu.', 2, '16:00', '17:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'),
+(3, 'Tapas & Cocktails Hour', 'Discounted Spanish cocktails', 'Start your evening with discounted sangria, gin & tonics, and Spanish wines. The perfect prelude to our acclaimed tapas menu.', 3, '16:00', '17:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'),
+(3, 'Tapas & Cocktails Hour', 'Discounted Spanish cocktails', 'Start your evening with discounted sangria, gin & tonics, and Spanish wines. The perfect prelude to our acclaimed tapas menu.', 4, '16:00', '17:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'),
+(3, 'Tapas & Cocktails Hour', 'Discounted Spanish cocktails', 'Start your evening with discounted sangria, gin & tonics, and Spanish wines. The perfect prelude to our acclaimed tapas menu.', 5, '16:00', '17:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600'),
+(3, 'Small Plates Special', 'Discounted tapas & pintxos', 'Enjoy our most popular small plates at happy hour prices! Featuring patatas bravas, jamón ibérico, manchego cheese, and grilled octopus. Perfect for sharing.', 1, '17:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600'),
+(3, 'Small Plates Special', 'Discounted tapas & pintxos', 'Enjoy our most popular small plates at happy hour prices! Featuring patatas bravas, jamón ibérico, manchego cheese, and grilled octopus. Perfect for sharing.', 2, '17:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600'),
+(3, 'Small Plates Special', 'Discounted tapas & pintxos', 'Enjoy our most popular small plates at happy hour prices! Featuring patatas bravas, jamón ibérico, manchego cheese, and grilled octopus. Perfect for sharing.', 3, '17:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600'),
+(3, 'Small Plates Special', 'Discounted tapas & pintxos', 'Enjoy our most popular small plates at happy hour prices! Featuring patatas bravas, jamón ibérico, manchego cheese, and grilled octopus. Perfect for sharing.', 4, '17:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600'),
+(3, 'Small Plates Special', 'Discounted tapas & pintxos', 'Enjoy our most popular small plates at happy hour prices! Featuring patatas bravas, jamón ibérico, manchego cheese, and grilled octopus. Perfect for sharing.', 5, '17:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600');
 
--- The Burger Joint happy hours
+-- The Cheesecake Factory - Half off cheesecake M-F 4-6pm
 INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
-(4, 'Burger & Beer Bash', '$10 burger + beer combo', 'Choose any burger and get a draft beer for just $10 total. Includes our famous truffle burger, BBQ bacon burger, and veggie burger.', NULL, '15:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600'),
-(4, 'Weekend Brunch Happy Hour', 'Bottomless mimosas', 'Saturday and Sunday brunch with unlimited mimosas for $20. Pair with our breakfast burgers and loaded hash browns.', 6, '10:00', '14:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600'),
-(4, 'Weekend Brunch Happy Hour', 'Bottomless mimosas', 'Saturday and Sunday brunch with unlimited mimosas for $20. Pair with our breakfast burgers and loaded hash browns.', 0, '10:00', '14:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600');
+(4, 'Cheesecake Happy Hour', '50% off all cheesecakes', 'Treat yourself to any of our 30+ legendary cheesecakes at half price! From Original to Oreo Dream Extreme. Monday through Friday, 4-6pm only.', 1, '16:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=600'),
+(4, 'Cheesecake Happy Hour', '50% off all cheesecakes', 'Treat yourself to any of our 30+ legendary cheesecakes at half price! From Original to Oreo Dream Extreme. Monday through Friday, 4-6pm only.', 2, '16:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=600'),
+(4, 'Cheesecake Happy Hour', '50% off all cheesecakes', 'Treat yourself to any of our 30+ legendary cheesecakes at half price! From Original to Oreo Dream Extreme. Monday through Friday, 4-6pm only.', 3, '16:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=600'),
+(4, 'Cheesecake Happy Hour', '50% off all cheesecakes', 'Treat yourself to any of our 30+ legendary cheesecakes at half price! From Original to Oreo Dream Extreme. Monday through Friday, 4-6pm only.', 4, '16:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=600'),
+(4, 'Cheesecake Happy Hour', '50% off all cheesecakes', 'Treat yourself to any of our 30+ legendary cheesecakes at half price! From Original to Oreo Dream Extreme. Monday through Friday, 4-6pm only.', 5, '16:00', '18:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1533134242-e8cfd2c8d0c7?w=600');
 
--- Taco Tuesday HQ happy hours
+-- Alici Oyster Bar - $1.50 oysters M-F 4-6pm & weekends 2-5pm
 INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
-(5, 'Taco Tuesday', '$2 tacos all day', 'The original! Every Tuesday, enjoy street-style tacos for just $2 each. Carnitas, carne asada, chicken, fish, and veggie options. Add unlimited chips & salsa!', 2, '11:00', '22:00', ARRAY['meal_specials'], 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=600'),
-(5, 'Margarita Madness', '$6 margaritas every evening', 'Daily happy hour featuring classic, strawberry, mango, and jalapeño margaritas. Available frozen or on the rocks with salt rim.', NULL, '16:00', '19:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600');
+(5, 'Weekday Oyster Happy Hour', '$1.50 fresh oysters', 'Gulf and Atlantic oysters shucked to order for just $1.50 each. Pair with crisp white wine or a cold beer. Raw, grilled, or baked - your choice!', 1, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekday Oyster Happy Hour', '$1.50 fresh oysters', 'Gulf and Atlantic oysters shucked to order for just $1.50 each. Pair with crisp white wine or a cold beer. Raw, grilled, or baked - your choice!', 2, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekday Oyster Happy Hour', '$1.50 fresh oysters', 'Gulf and Atlantic oysters shucked to order for just $1.50 each. Pair with crisp white wine or a cold beer. Raw, grilled, or baked - your choice!', 3, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekday Oyster Happy Hour', '$1.50 fresh oysters', 'Gulf and Atlantic oysters shucked to order for just $1.50 each. Pair with crisp white wine or a cold beer. Raw, grilled, or baked - your choice!', 4, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekday Oyster Happy Hour', '$1.50 fresh oysters', 'Gulf and Atlantic oysters shucked to order for just $1.50 each. Pair with crisp white wine or a cold beer. Raw, grilled, or baked - your choice!', 5, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekend Oyster Special', '$1.50 oysters all afternoon', 'Extend your weekend with our extended oyster happy hour! Fresh Gulf oysters for just $1.50 each, Saturday and Sunday afternoons. Perfect for lazy weekend lunches.', 6, '14:00', '17:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600'),
+(5, 'Weekend Oyster Special', '$1.50 oysters all afternoon', 'Extend your weekend with our extended oyster happy hour! Fresh Gulf oysters for just $1.50 each, Saturday and Sunday afternoons. Perfect for lazy weekend lunches.', 0, '14:00', '17:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600');
 
--- Add a future one-time event for testing specific_date functionality
-INSERT INTO happy_hours (restaurant_id, title, tagline, description, specific_date, start_time, end_time, tags, image_url) VALUES
-(3, 'New Year''s Eve Champagne Special', 'Champagne toast at midnight', 'Ring in the new year with complimentary champagne at midnight! Live DJ, premium cocktails, and rooftop fireworks viewing.', '2025-12-31', '21:00', '02:00', ARRAY['drinks'], 'https://images.unsplash.com/photo-1467810563316-b5476525c0f9?w=600');
+-- Fontaine's Oyster House - $15 dozen oysters, Tuesdays
+INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
+(6, 'Oyster Tuesday', '$15 dozen fresh oysters', 'Every Tuesday is Oyster Tuesday! Get a full dozen fresh-shucked oysters for just $15. East Coast, West Coast, and Gulf varieties available. A Virginia Highland tradition!', 2, '16:00', '18:00', ARRAY['oysters', 'meal_specials'], 'https://images.unsplash.com/photo-1559702248-2e5b6c7d9d6f?w=600');
 
--- Optional: Insert a test user (password: "password123" hashed with bcrypt)
--- You can use this to test authentication later
--- Password hash generated with: bcrypt.hash('password123', 10)
+-- Universal Joint - Monday $1 Wings & M-F $8 Burgers
+INSERT INTO happy_hours (restaurant_id, title, tagline, description, day_of_week, start_time, end_time, tags, image_url) VALUES
+(7, 'Monday Wing Night', '$1 wings all evening', 'The best deal in Oakhurst! Traditional or boneless wings for just $1 each. Choose from 12 sauces: buffalo, BBQ, teriyaki, garlic parmesan, and more. Monday nights only!', 1, '16:00', '18:00', ARRAY['wings', 'meal_specials'], 'https://images.unsplash.com/photo-1608039829572-78524f79c4c7?w=600'),
+(7, 'Weekday Burger & Beer Deal', '$8 burger with fries', 'Hungry? Get our signature burger with fries for just $8 Monday through Friday. Add a draft beer for $3. The ultimate neighborhood happy hour!', 1, '16:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600'),
+(7, 'Weekday Burger & Beer Deal', '$8 burger with fries', 'Hungry? Get our signature burger with fries for just $8 Monday through Friday. Add a draft beer for $3. The ultimate neighborhood happy hour!', 2, '16:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600'),
+(7, 'Weekday Burger & Beer Deal', '$8 burger with fries', 'Hungry? Get our signature burger with fries for just $8 Monday through Friday. Add a draft beer for $3. The ultimate neighborhood happy hour!', 3, '16:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600'),
+(7, 'Weekday Burger & Beer Deal', '$8 burger with fries', 'Hungry? Get our signature burger with fries for just $8 Monday through Friday. Add a draft beer for $3. The ultimate neighborhood happy hour!', 4, '16:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600'),
+(7, 'Weekday Burger & Beer Deal', '$8 burger with fries', 'Hungry? Get our signature burger with fries for just $8 Monday through Friday. Add a draft beer for $3. The ultimate neighborhood happy hour!', 5, '16:00', '18:00', ARRAY['meal_specials', 'drinks'], 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d?w=600');
+
+-- Insert test user (password: "password123" hashed with bcrypt)
 INSERT INTO users (email, password_hash) VALUES
 ('test@example.com', '$2b$10$rKjHELQXQ5Z.5v3FvZ4zxO7F5KKN1XpYLLvL4y4O5pN5HqBjW5B6C');
