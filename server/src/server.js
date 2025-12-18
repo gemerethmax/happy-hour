@@ -9,6 +9,8 @@ const pool = require('./db/connection');
 
 // Import routes
 const authRoutes = require('./routes/auth');
+const happyHoursRoutes = require('./routes/happyHours');
+const interestsRoutes = require('./routes/interests');
 
 // Initialize Express app
 const app = express();
@@ -53,10 +55,8 @@ app.get('/api/db-test', async (req, res, next) => {
 
 // API Routes
 app.use('/api/auth', authRoutes);
-
-// Placeholder routes (we'll build these in Phase 5)
-// app.use('/api/happy-hours', happyHoursRoutes);
-// app.use('/api/interests', interestsRoutes);
+app.use('/api/happy-hours', happyHoursRoutes);
+app.use('/api/interests', interestsRoutes);
 
 // Error handling middleware (catches any errors and formats response)
 app.use((err, req, res, next) => {
