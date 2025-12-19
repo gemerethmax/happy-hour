@@ -78,11 +78,19 @@ body {
 .auth-card h1 {
   font-size: 36px;
   margin-bottom: 8px;
-  color: var(--burnt-orange);
+  color: var(--cream);
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 0px var(--mustard-yellow);
+  text-shadow:
+    0 0 10px var(--neon-blue),
+    0 0 20px var(--neon-blue),
+    0 0 30px var(--neon-blue),
+    0 0 40px var(--electric-blue),
+    0 0 70px var(--electric-blue),
+    0 0 80px var(--electric-blue),
+    2px 2px 0px var(--chocolate-brown);
+  animation: flicker 3s infinite alternate;
 }
 
 .auth-card h2 {
