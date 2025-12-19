@@ -7,7 +7,7 @@ const generateToken = (userId) => {
   return jwt.sign(
     { userId }, // Payload - data stored in token
     process.env.JWT_SECRET, // Secret key for signing
-    { expiresIn: process.env.JWT_EXPIRES_IN } // Token expires in 7 days
+    { expiresIn: process.env.JWT_EXPIRES_IN || '7d' } // Token expires in 7 days
   );
 };
 
