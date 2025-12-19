@@ -1,5 +1,5 @@
-// API base URL - update this when deploying to Render
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+// API base URL - uses relative path in production (same domain), localhost in development
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api';
 
 // Helper function to handle API responses
 const handleResponse = async (response) => {
