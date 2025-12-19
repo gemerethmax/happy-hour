@@ -1,8 +1,14 @@
+/* ===================================
+   Interested View - My Happy Hours
+   =================================== */
+
 .interests-list {
   max-width: 900px;
   width: 100%;
   margin: 0 auto;
 }
+
+/* Day Grouping */
 
 .day-group {
   margin-bottom: 48px;
@@ -19,6 +25,8 @@
   letter-spacing: 2px;
   text-shadow: 2px 2px 0px var(--mustard-yellow);
 }
+
+/* Interest Cards */
 
 .interest-cards {
   display: flex;
@@ -92,18 +100,9 @@
   flex-wrap: wrap;
 }
 
-.interest-tags .tag {
-  padding: 8px 16px;
-  background: linear-gradient(135deg, var(--avocado-green) 0%, #6B7A3A 100%);
-  color: var(--cream);
-  border: 2px solid var(--chocolate-brown);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
-}
+/* Tag styles moved to App.css (shared component) */
+
+/* Remove Button */
 
 .btn-remove {
   padding: 12px 24px;
@@ -128,7 +127,10 @@
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive design */
+/* ===================================
+   Responsive Design
+   =================================== */
+
 @media (max-width: 600px) {
   .interest-card {
     flex-direction: column;

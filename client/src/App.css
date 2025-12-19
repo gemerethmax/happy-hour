@@ -1,4 +1,7 @@
-/* Reset and base styles */
+/* ===================================
+   CSS Reset
+   =================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +13,10 @@ html {
   overflow-x: hidden;
 }
 
-/* Retro 60s/70s Color Palette */
+/* ===================================
+   CSS Variables - Retro 60s/70s Theme
+   =================================== */
+
 :root {
   --burnt-orange: #E67E22;
   --dark-orange: #D35400;
@@ -28,6 +34,10 @@ html {
   --electric-blue: #0066FF;
 }
 
+/* ===================================
+   Base Styles
+   =================================== */
+
 body {
   font-family: 'Courier New', 'Courier', monospace;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +53,10 @@ body {
   width: 100%;
 }
 
-/* Auth pages */
+/* ===================================
+   Authentication Pages
+   =================================== */
+
 .auth-container {
   display: flex;
   justify-content: center;
@@ -111,6 +124,10 @@ body {
   box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
 }
 
+/* ===================================
+   Button Styles
+   =================================== */
+
 .btn-primary {
   width: 100%;
   padding: 14px;
@@ -161,6 +178,10 @@ body {
   box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
 }
 
+/* ===================================
+   Error & Link Styles
+   =================================== */
+
 .error-message {
   background-color: #FFE5E5;
   color: var(--rust-brown);
@@ -190,12 +211,17 @@ body {
   border-bottom-color: var(--dark-orange);
 }
 
-/* Main app layout */
+/* ===================================
+   Main App Layout
+   =================================== */
+
 .main-container {
   min-height: 100vh;
   width: 100%;
   background: linear-gradient(135deg, var(--cream) 0%, var(--off-white) 100%);
 }
+
+/* Header */
 
 .app-header {
   background: linear-gradient(90deg, var(--burnt-orange) 0%, var(--mustard-yellow) 100%);
@@ -255,6 +281,8 @@ body {
   text-shadow: 1px 1px 0px var(--chocolate-brown);
 }
 
+/* Navigation */
+
 .main-nav {
   background-color: var(--avocado-green);
   border-bottom: 4px solid var(--chocolate-brown);
@@ -288,6 +316,8 @@ body {
   box-shadow: 0 0 15px var(--neon-blue);
 }
 
+/* Main Content Area */
+
 main {
   padding: 40px 20px;
   margin: 0 auto;
@@ -315,6 +345,10 @@ main p {
   font-size: 16px;
 }
 
+/* ===================================
+   Utility States (Loading, No Results, Counter)
+   =================================== */
+
 .loading-container {
   display: flex;
   justify-content: center;
@@ -325,7 +359,6 @@ main p {
   font-weight: 700;
 }
 
-/* Swipe view specific */
 .no-results {
   text-align: center;
   padding: 80px 40px;
@@ -366,7 +399,28 @@ main p {
   font-size: 24px;
 }
 
-/* Responsive adjustments */
+/* ===================================
+   Shared Component Styles
+   =================================== */
+
+/* Shared tag style used across cards and interests */
+.tag {
+  padding: 8px 16px;
+  background: linear-gradient(135deg, var(--avocado-green) 0%, #6B7A3A 100%);
+  color: var(--cream);
+  border: 2px solid var(--chocolate-brown);
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
 @media (max-width: 768px) {
   main {
     padding: 30px 20px;

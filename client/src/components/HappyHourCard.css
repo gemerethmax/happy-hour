@@ -1,8 +1,14 @@
+/* ===================================
+   Happy Hour Card Component
+   =================================== */
+
 .card-container {
   max-width: 600px;
   width: 100%;
   margin: 0 auto;
 }
+
+/* Card Structure & Flip Animation */
 
 .happy-hour-card {
   position: relative;
@@ -51,6 +57,8 @@
   height: 100%;
   object-fit: cover;
 }
+
+/* Card Content */
 
 .card-content {
   padding: 24px;
@@ -111,18 +119,9 @@
   margin-bottom: 20px;
 }
 
-.tag {
-  padding: 8px 16px;
-  background: linear-gradient(135deg, var(--avocado-green) 0%, #6B7A3A 100%);
-  color: var(--cream);
-  border: 2px solid var(--chocolate-brown);
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15);
-}
+/* Tag styles moved to App.css (shared component) */
+
+/* Flip Hint */
 
 .flip-hint {
   margin-top: auto;
@@ -135,7 +134,8 @@
   letter-spacing: 1px;
 }
 
-/* Back of card */
+/* Card Back Content */
+
 .card-description {
   margin-bottom: 20px;
 }
@@ -162,7 +162,8 @@
   margin-bottom: 20px;
 }
 
-/* Action buttons */
+/* Action Buttons */
+
 .card-actions {
   display: flex;
   gap: 20px;
