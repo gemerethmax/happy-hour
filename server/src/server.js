@@ -66,9 +66,14 @@ if (process.env.NODE_ENV === 'production') {
   // Serve static files from the React app build directory
   app.use(express.static(path.join(__dirname, '../../client/dist')));
 
-  // Catch-all route: serve index.html for any non-API routes (React Router)
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist', 'index.html'));
+  // Catch-all: serve index.html for any non-API routes (React Router)
+  app.use((req, res, next) => {
+    // If the request is not for an API route, serve the React app
+    if (!req.path.startsWith('/api')) {
+      res.sendFile(path.join(__dirname, '../../client/dist', 'index.html'));
+    } else {
+      next();
+    }
   });
 }
 
